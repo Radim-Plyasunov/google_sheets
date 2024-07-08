@@ -1,0 +1,222 @@
+[
+    {
+        "label": "gspread",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "gspread",
+        "description": "gspread",
+        "detail": "gspread",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "gspread_formatting",
+        "description": "gspread_formatting",
+        "isExtraImport": true,
+        "detail": "gspread_formatting",
+        "documentation": {}
+    },
+    {
+        "label": "telebot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "telebot",
+        "description": "telebot",
+        "detail": "telebot",
+        "documentation": {}
+    },
+    {
+        "label": "types",
+        "importPath": "telebot",
+        "description": "telebot",
+        "isExtraImport": true,
+        "detail": "telebot",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "create_week",
+        "importPath": "create_week",
+        "description": "create_week",
+        "isExtraImport": true,
+        "detail": "create_week",
+        "documentation": {}
+    },
+    {
+        "label": "find_user",
+        "importPath": "gs_utils",
+        "description": "gs_utils",
+        "isExtraImport": true,
+        "detail": "gs_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_subjects",
+        "importPath": "gs_utils",
+        "description": "gs_utils",
+        "isExtraImport": true,
+        "detail": "gs_utils",
+        "documentation": {}
+    },
+    {
+        "label": "cell_name",
+        "kind": 2,
+        "importPath": "create_week",
+        "description": "create_week",
+        "peekOfCode": "def cell_name(row, col):\n    return f'{alphabet[col-1]}{row}'\ndef cell_range(start_row, start_col, end_row, end_col):\n    return f'{alphabet[start_col-1]}{start_row}:{alphabet[end_col-1]}{end_row}'\ndef create_week(name, sheet):\n    #week_worksheet = sheet.add_worksheet(title=name, rows=100, cols=100)\n    week_ws = sheet.worksheet(name)\n    week_ws.clear()\n    week_ws.format('B1:Z99', {\"horizontalAlignment\":\"CENTER\"})\n    week_ws.format('B1:Z1', {'textFormat': {'bold': True}})",
+        "detail": "create_week",
+        "documentation": {}
+    },
+    {
+        "label": "cell_range",
+        "kind": 2,
+        "importPath": "create_week",
+        "description": "create_week",
+        "peekOfCode": "def cell_range(start_row, start_col, end_row, end_col):\n    return f'{alphabet[start_col-1]}{start_row}:{alphabet[end_col-1]}{end_row}'\ndef create_week(name, sheet):\n    #week_worksheet = sheet.add_worksheet(title=name, rows=100, cols=100)\n    week_ws = sheet.worksheet(name)\n    week_ws.clear()\n    week_ws.format('B1:Z99', {\"horizontalAlignment\":\"CENTER\"})\n    week_ws.format('B1:Z1', {'textFormat': {'bold': True}})\n    set_column_width(week_ws, 'A', 200)\n    users_worksheet = sheet.worksheet('users')",
+        "detail": "create_week",
+        "documentation": {}
+    },
+    {
+        "label": "create_week",
+        "kind": 2,
+        "importPath": "create_week",
+        "description": "create_week",
+        "peekOfCode": "def create_week(name, sheet):\n    #week_worksheet = sheet.add_worksheet(title=name, rows=100, cols=100)\n    week_ws = sheet.worksheet(name)\n    week_ws.clear()\n    week_ws.format('B1:Z99', {\"horizontalAlignment\":\"CENTER\"})\n    week_ws.format('B1:Z1', {'textFormat': {'bold': True}})\n    set_column_width(week_ws, 'A', 200)\n    users_worksheet = sheet.worksheet('users')\n    i = 1\n    while 0 == 0:",
+        "detail": "create_week",
+        "documentation": {}
+    },
+    {
+        "label": "alphabet",
+        "kind": 5,
+        "importPath": "create_week",
+        "description": "create_week",
+        "peekOfCode": "alphabet = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\"\ndef cell_name(row, col):\n    return f'{alphabet[col-1]}{row}'\ndef cell_range(start_row, start_col, end_row, end_col):\n    return f'{alphabet[start_col-1]}{start_row}:{alphabet[end_col-1]}{end_row}'\ndef create_week(name, sheet):\n    #week_worksheet = sheet.add_worksheet(title=name, rows=100, cols=100)\n    week_ws = sheet.worksheet(name)\n    week_ws.clear()\n    week_ws.format('B1:Z99', {\"horizontalAlignment\":\"CENTER\"})",
+        "detail": "create_week",
+        "documentation": {}
+    },
+    {
+        "label": "find_user",
+        "kind": 2,
+        "importPath": "gs_utils",
+        "description": "gs_utils",
+        "peekOfCode": "def find_user(user_ws, user_id, user_name):\n    ids = user_ws.col_values(2)\n    names = user_ws.col_values(1)\n    if user_id in ids:\n        i = ids.index(user_id)\n        return user_ws.cell(i + 1, 3).value\n    if user_name in names:\n        i = names.index(user_name)\n        if user_id != 0:\n            user_ws.update_cell(i + 1, 2, user_id)",
+        "detail": "gs_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_subjects",
+        "kind": 2,
+        "importPath": "gs_utils",
+        "description": "gs_utils",
+        "peekOfCode": "def get_subjects(subject_ws, day_number):\n    result = []\n    day_name = weekdays[day_number]\n    cells = subject_ws.get(\"A1:B99\")\n    for row in cells:\n        if row[0] == day_name:\n            result.append(row[1])\n    return result",
+        "detail": "gs_utils",
+        "documentation": {}
+    },
+    {
+        "label": "weekdays",
+        "kind": 5,
+        "importPath": "gs_utils",
+        "description": "gs_utils",
+        "peekOfCode": "weekdays = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']\ndef get_subjects(subject_ws, day_number):\n    result = []\n    day_name = weekdays[day_number]\n    cells = subject_ws.get(\"A1:B99\")\n    for row in cells:\n        if row[0] == day_name:\n            result.append(row[1])\n    return result",
+        "detail": "gs_utils",
+        "documentation": {}
+    },
+    {
+        "label": "MessageHandler",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def MessageHandler(message):\n    user_id = message.from_user.id\n    user_name = message.from_user.username\n    user_full_name = find_user(user_ws, user_id, user_name)    \n    bot.reply_to(message, f'Hello {user_full_name}')\n    weekday = datetime.datetime.today().weekday()\n    subjects = get_subjects(subject_ws, weekday)\n    keyboard = types.InlineKeyboardMarkup()\n    for subject in subjects:\n        button = types.InlineKeyboardButton(subject, callback_data='subject_button')",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "SCOPES",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "SCOPES = [\"https://www.googleapis.com/auth/spreadsheets\"]\nSPREADSHEET_ID = \"1aeQ7my0K_YB5iP19OzWWawqVJH1gctqPUjjeq4GEiwQ\"\nSERVICE_ACCOUNT_FILE = 'D:\\\\visiting.json'\ngc = gspread.service_account(SERVICE_ACCOUNT_FILE)\nsheet = gc.open_by_key(SPREADSHEET_ID);\nuser_ws = sheet.worksheet('users')\nsubject_ws = sheet.worksheet('schedule')\nname = \"08.07.2024\"\n#create_week(name, sheet)\nbot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "SPREADSHEET_ID",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "SPREADSHEET_ID = \"1aeQ7my0K_YB5iP19OzWWawqVJH1gctqPUjjeq4GEiwQ\"\nSERVICE_ACCOUNT_FILE = 'D:\\\\visiting.json'\ngc = gspread.service_account(SERVICE_ACCOUNT_FILE)\nsheet = gc.open_by_key(SPREADSHEET_ID);\nuser_ws = sheet.worksheet('users')\nsubject_ws = sheet.worksheet('schedule')\nname = \"08.07.2024\"\n#create_week(name, sheet)\nbot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')\n@bot.message_handler(commands=['start'])",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "SERVICE_ACCOUNT_FILE",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "SERVICE_ACCOUNT_FILE = 'D:\\\\visiting.json'\ngc = gspread.service_account(SERVICE_ACCOUNT_FILE)\nsheet = gc.open_by_key(SPREADSHEET_ID);\nuser_ws = sheet.worksheet('users')\nsubject_ws = sheet.worksheet('schedule')\nname = \"08.07.2024\"\n#create_week(name, sheet)\nbot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')\n@bot.message_handler(commands=['start'])\ndef MessageHandler(message):",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "gc",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "gc = gspread.service_account(SERVICE_ACCOUNT_FILE)\nsheet = gc.open_by_key(SPREADSHEET_ID);\nuser_ws = sheet.worksheet('users')\nsubject_ws = sheet.worksheet('schedule')\nname = \"08.07.2024\"\n#create_week(name, sheet)\nbot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')\n@bot.message_handler(commands=['start'])\ndef MessageHandler(message):\n    user_id = message.from_user.id",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "sheet",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "sheet = gc.open_by_key(SPREADSHEET_ID);\nuser_ws = sheet.worksheet('users')\nsubject_ws = sheet.worksheet('schedule')\nname = \"08.07.2024\"\n#create_week(name, sheet)\nbot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')\n@bot.message_handler(commands=['start'])\ndef MessageHandler(message):\n    user_id = message.from_user.id\n    user_name = message.from_user.username",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "user_ws",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "user_ws = sheet.worksheet('users')\nsubject_ws = sheet.worksheet('schedule')\nname = \"08.07.2024\"\n#create_week(name, sheet)\nbot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')\n@bot.message_handler(commands=['start'])\ndef MessageHandler(message):\n    user_id = message.from_user.id\n    user_name = message.from_user.username\n    user_full_name = find_user(user_ws, user_id, user_name)    ",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "subject_ws",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "subject_ws = sheet.worksheet('schedule')\nname = \"08.07.2024\"\n#create_week(name, sheet)\nbot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')\n@bot.message_handler(commands=['start'])\ndef MessageHandler(message):\n    user_id = message.from_user.id\n    user_name = message.from_user.username\n    user_full_name = find_user(user_ws, user_id, user_name)    \n    bot.reply_to(message, f'Hello {user_full_name}')",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "name",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "name = \"08.07.2024\"\n#create_week(name, sheet)\nbot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')\n@bot.message_handler(commands=['start'])\ndef MessageHandler(message):\n    user_id = message.from_user.id\n    user_name = message.from_user.username\n    user_full_name = find_user(user_ws, user_id, user_name)    \n    bot.reply_to(message, f'Hello {user_full_name}')\n    weekday = datetime.datetime.today().weekday()",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "bot",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "bot = telebot.TeleBot('7296422640:AAHr8GLP4wyVKMmm5Kg3ggfCSxUiOM-p3Fw')\n@bot.message_handler(commands=['start'])\ndef MessageHandler(message):\n    user_id = message.from_user.id\n    user_name = message.from_user.username\n    user_full_name = find_user(user_ws, user_id, user_name)    \n    bot.reply_to(message, f'Hello {user_full_name}')\n    weekday = datetime.datetime.today().weekday()\n    subjects = get_subjects(subject_ws, weekday)\n    keyboard = types.InlineKeyboardMarkup()",
+        "detail": "test",
+        "documentation": {}
+    }
+]
